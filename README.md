@@ -11,3 +11,5 @@ por la de ustedes
 para ejecutar el proyecto 
 
 ## adjuntare un video de como abrirlo y su funcionalidad, tambien al final del video mostrare el diagrama entidad relacion que plantie
+
+## esta es la ruta que se debe poner cuando se monte el proyecto http://localhost:8090/productos/agregar
