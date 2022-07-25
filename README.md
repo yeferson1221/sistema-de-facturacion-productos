@@ -11,5 +11,8 @@ por la de ustedes
 para ejecutar el proyecto 
 
 ## adjuntare un video de como abrirlo y su funcionalidad, tambien al final del video mostrare el diagrama entidad relacion que plantie
+## video parte 1 https://www.youtube.com/watch?v=CORP0V6Tmck&ab_channel=YefersonValencia   video parte 2   https://www.youtube.com/watch?v=CdjNE-VJvL4&ab_channel=YefersonValencia
 
-## esta es la ruta que se debe poner cuando se monte el proyecto http://localhost:8090/productos/agregar
+
+# importante despues de montado el proyecto la ruta inicial que ponemos en el navegador es   http://localhost:8090/productos/mostrar
+
