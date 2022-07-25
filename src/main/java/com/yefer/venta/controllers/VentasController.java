@@ -1,6 +1,6 @@
-package com.yefer.relaciones.controllers;
+package com.yefer.venta.controllers;
 
-import com.yefer.relaciones.repository.VentasRepository;
+import com.yefer.venta.repository.VentasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

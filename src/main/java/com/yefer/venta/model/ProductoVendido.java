@@ -1,4 +1,4 @@
-package com.yefer.relaciones.model;
+package com.yefer.venta.model;
 
 import javax.persistence.*;
 

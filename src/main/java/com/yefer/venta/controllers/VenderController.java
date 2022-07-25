@@ -1,12 +1,12 @@
-package com.yefer.relaciones.controllers;
+package com.yefer.venta.controllers;
 
-import com.yefer.relaciones.model.Producto;
-import com.yefer.relaciones.model.ProductoVendido;
-import com.yefer.relaciones.model.Venta;
-import com.yefer.relaciones.repository.ProductosRepository;
-import com.yefer.relaciones.repository.ProductosVendidosRepository;
-import com.yefer.relaciones.repository.VentasRepository;
-import com.yefer.relaciones.service.ProductoParaVender;
+import com.yefer.venta.model.Producto;
+import com.yefer.venta.model.ProductoVendido;
+import com.yefer.venta.model.Venta;
+import com.yefer.venta.repository.ProductosRepository;
+import com.yefer.venta.repository.ProductosVendidosRepository;
+import com.yefer.venta.repository.VentasRepository;
+import com.yefer.venta.service.ProductoParaVender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,6 +47,14 @@ public class VenderController {
     @Autowired
     ProductosVendidosRepository productosVendidosRepository;
 
+    /**
+     * obtenerCarrito el metodo nos permite optener el carrto con la compras
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     private ArrayList<ProductoParaVender> obtenerCarrito(HttpServletRequest request) {
         ArrayList<ProductoParaVender> carrito = (ArrayList<ProductoParaVender>) request.getSession().getAttribute("carrito");
         if (carrito == null) {
@@ -55,10 +63,26 @@ public class VenderController {
         return carrito;
     }
 
+    /**
+     * obtenerCarrito guargar el carrito este no tiene persistencia en la BD
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     private void guardarCarrito(ArrayList<ProductoParaVender> carrito, HttpServletRequest request) {
         request.getSession().setAttribute("carrito", carrito);
     }
 
+    /**
+     * contiene un optener lsiat de ventas
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     @GetMapping(value = "/")
     public String interfazVender(Model model, HttpServletRequest request) {
         model.addAttribute("producto", new Producto());
@@ -69,6 +93,14 @@ public class VenderController {
         return "vender/vender";
     }
 
+    /**
+     * nospermite ahora si metdodo POST guardar BD si no es cancelada la venta
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     @PostMapping(value = "/agregar")
     public String agregarAlCarrito(@ModelAttribute Producto producto, HttpServletRequest request, RedirectAttributes redirectAttrs) {
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
@@ -101,6 +133,14 @@ public class VenderController {
     }
 
 
+    /**
+     * nospermite eliminar del carrito  alguna venta
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     @PostMapping(value = "/quitar/{indice}")
     public String quitarDelCarrito(@PathVariable int indice, HttpServletRequest request) {
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
@@ -116,6 +156,14 @@ public class VenderController {
         this.guardarCarrito(new ArrayList<>(), request);
     }
 
+    /**
+     * nospermite optener la venta para cancelarla
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     @GetMapping(value = "/limpiar")
     public String cancelarVenta(HttpServletRequest request, RedirectAttributes redirectAttrs) {
         this.limpiarCarrito(request);
@@ -125,6 +173,14 @@ public class VenderController {
         return "redirect:/vender/";
     }
 
+    /**
+     * nospermiteregistrar la venta si a sido exitosa 
+     *
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     @PostMapping(value = "/terminar")
     public String terminarVenta(HttpServletRequest request, RedirectAttributes redirectAttrs) {
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);

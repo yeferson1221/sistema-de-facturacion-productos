@@ -1,6 +1,6 @@
-package com.yefer.relaciones.repository;
+package com.yefer.venta.repository;
 
-import com.yefer.relaciones.model.Producto;
+import com.yefer.venta.model.Venta;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +12,5 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public interface ProductosRepository extends CrudRepository<Producto, Integer> {
-
-    Producto findFirstByCodigo(String codigo);
+public interface VentasRepository extends CrudRepository<Venta, Integer> {
 }

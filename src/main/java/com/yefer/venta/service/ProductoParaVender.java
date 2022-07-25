@@ -1,9 +1,6 @@
-package com.yefer.relaciones.service;
+package com.yefer.venta.service;
 
-import com.yefer.relaciones.model.Producto;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
+import com.yefer.venta.model.Producto;
 
 public class ProductoParaVender extends Producto {
     private Float cantidad;
