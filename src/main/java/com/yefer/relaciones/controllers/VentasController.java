@@ -13,6 +13,7 @@ public class VentasController {
     @Autowired
     VentasRepository ventasRepository;
 
+
     @GetMapping(value = "/")
     public String mostrarVentas(Model model) {
         model.addAttribute("ventas", ventasRepository.findAll());

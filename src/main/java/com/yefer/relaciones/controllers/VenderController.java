@@ -15,14 +15,36 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+
+/**
+ * contiene la clase controlador  con los metodos y la logica del proyecto
+ * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+ *
+ * @since [1.0.0]
+ *
+ */
 @Controller
 @RequestMapping(path = "/vender")
 public class VenderController {
 
+    /**
+     * contiene las inyecciones de los repositorios   @Autowired
+     *     @Autowired
+     *     VentasRepository ventasRepository;
+     *     @Autowired
+     *     ProductosRepository productosRepository;
+     *     @Autowired
+     *     ProductosVendidosRepository productosVendidosRepository;
+     * @author [Yeferson Valencia, alejandro.yandd@gmail.com.
+     *
+     * @since [1.0.0]
+     *
+     */
     @Autowired
     VentasRepository ventasRepository;
-
+    @Autowired
     ProductosRepository productosRepository;
+    @Autowired
     ProductosVendidosRepository productosVendidosRepository;
 
     private ArrayList<ProductoParaVender> obtenerCarrito(HttpServletRequest request) {
